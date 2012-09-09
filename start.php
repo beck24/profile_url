@@ -1,12 +1,12 @@
 <?php
 
-function profile_url_init(){
+function profile_url_init() {
   elgg_register_plugin_hook_handler('forward', '404', 'profile_url_router', 0);
   elgg_register_plugin_hook_handler('registeruser:validate:username', 'all', 'profile_url_check_username');
   elgg_register_entity_url_handler('user', 'all', 'profile_url_member_url');
 }
 
-function profile_url_router($hook, $type, $return, $params){
+function profile_url_router($hook, $type, $return, $params) {
   
   $base_path = parse_url(elgg_get_site_url(), PHP_URL_PATH);
   $current_path = parse_url($params['current_url'], PHP_URL_PATH);
@@ -23,7 +23,7 @@ function profile_url_router($hook, $type, $return, $params){
   return $return;
 }
 
-function profile_url_member_url($user){
+function profile_url_member_url($user) {
   return elgg_get_site_url() . urlencode($user->username);
 }
 
