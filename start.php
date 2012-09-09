@@ -7,7 +7,6 @@ function profile_url_init(){
 }
 
 /**
- * 	Hook on 404 forwards
  *  if first part is a valid username, we'll send them to that profile
  */
 function profile_url_router($hook, $type, $return, $params){
@@ -26,6 +25,7 @@ function profile_url_router($hook, $type, $return, $params){
     $user = get_user_by_username($username);
   
     if ($user) {
+      elgg_set_context('profile');
       if (profile_page_handler(array($username))) {
         exit;
       }
