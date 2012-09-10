@@ -28,8 +28,7 @@ function profile_url_member_url($user) {
 }
 
 function profile_url_check_username($hook, $type, $return, $params) {
-  global $CONFIG;
-  return !in_array($params['username'], array_keys($CONFIG->pagehandler));
+  return !in_array($params['username'], array_keys(elgg_get_config('pagehandler')));
 }
 
 elgg_register_event_handler('init', 'system', 'profile_url_init');
