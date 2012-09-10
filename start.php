@@ -13,7 +13,7 @@ function profile_url_router($hook, $type, $return, $params) {
   $current_path = ($base_path == '/') ? substr($current_path,1) : str_replace($base_path, '', $current_path);
   $parts = explode('/', $current_path);
   
-  if (count($parts) == 1 && $user = get_user_by_username(urldecode($parts[0]))) {
+  if (count($parts) == 1 && $user = get_user_by_username(str_replace('-', '.', $parts[0]))) {
     elgg_set_context('profile');
     if (profile_page_handler(array($user->username))) {
       exit;
@@ -24,7 +24,7 @@ function profile_url_router($hook, $type, $return, $params) {
 }
 
 function profile_url_member_url($user) {
-  return elgg_get_site_url() . urlencode($user->username);
+  return elgg_get_site_url() . str_replace('.', '-', $user->username);
 }
 
 function profile_url_check_username($hook, $type, $return, $params) {
