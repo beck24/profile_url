@@ -1,7 +1,6 @@
-#profile_url
+# profile_url
 
-Member profile urls in the form of:
-```http://example.com/<username>```
+Member profile urls in the form of: `http://example.com/<username>`
 
 
 ## Instructions
