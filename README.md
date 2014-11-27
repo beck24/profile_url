@@ -1,9 +1,19 @@
-profile_url
-===========
+#profile_url
 
-Member profile urls in the form of &lt;base_url>/&lt;username>
+Member profile urls in the form of:
+```http://example.com/<username>```
 
-Changes:
 
-1.1 - reduced sloc count to 27!
-    - fixed 404's when username contains a dot
+## Instructions
+
+Unzip the archive to the mod directory of your Elgg installation
+
+Activate the plugin in the admin plugins page
+
+
+### Caveats
+
+This plugin prevents users from registering with usernames that are also registered
+pagehandlers.  This cannot do anything about existing users that have usernames
+equivalent to pagehandlers prior to this plugin being activated.  Any users with
+usernames that are existing pagehandlers will not be able to access their profile.

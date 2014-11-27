@@ -1,0 +1,10 @@
+== Version History ==
+
+2.0 (11/26/2014):
+    - upgraded for Elgg 1.9
+    - namespaced code
+    - trigger route hooks prior to page output
+    - call registered pagehandler instead of assuming default plugin
+
+1.1 - reduced sloc count to 27!
+    - fixed 404's when username contains a dot
